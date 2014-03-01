@@ -36,8 +36,15 @@ for File in sys.argv:
       mets.attrib['TYPE'] = 'Newspaper'
 
   # Veridian cares about servicefile and doesn't about masterfile.
-  # can't have two jp2s in the structMap; use servicefile instead of masterfile
-  
+  # use servicefile instead of masterfile
+
+  # loop through fileSec file elements
+  for fileSec in root.getiterator('{http://www.loc.gov/METS/}fileSec'):
+    for fileGrp in fileSec:
+      for file in fileGrp:
+        # change masterFile to serviceFile
+        file.attrib['ID'] = re.sub('masterFile', 'serviceFile', file.attrib['ID'])
+
   # loop through structMap divs
   for div in root.getiterator('{http://www.loc.gov/METS/}div'):
     # we're interested in the "pages"
