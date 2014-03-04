@@ -30,10 +30,10 @@ for File in sys.argv:
   register_namespace('xlink', "http://www.w3.org/1999/xlink")
   register_namespace('xsi', "http://www.w3.org/2001/XMLSchema-instance")  
   
-  # Make sure the mets type attribute is "Newspaper"
-  for mets in root.getiterator('{http://www.loc.gov/METS/}mets'):
-    if mets.attrib['TYPE'] != 'Newspaper':
-      mets.attrib['TYPE'] = 'Newspaper'
+#  # Make sure the mets type attribute is "Newspaper"
+#  for mets in root.getiterator('{http://www.loc.gov/METS/}mets'):
+#    if mets.attrib['TYPE'] != 'Newspaper':
+#      mets.attrib['TYPE'] = 'Newspaper'
 
   # Veridian cares about servicefile and doesn't about masterfile.
   # use servicefile instead of masterfile
