@@ -64,3 +64,6 @@ for File in sys.argv:
   new_File = "METS.xml"
   tree.write(new_File)
 
+  with open("METS.xml", "a") as metsFile:
+    metsFile.write("\n")
+
